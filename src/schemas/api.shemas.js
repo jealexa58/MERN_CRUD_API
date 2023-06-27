@@ -15,3 +15,17 @@ export const registerSchema = z.object({
         message: 'Password must be at least 6 characters'
     }),
 });
+
+// validación de los datos ingresados en login
+export const loginSchema = z.object({
+    email: z.string({
+        required_error: "email is required",
+    }).email({
+        message: "invalid email",
+    }),
+    password: z.string({
+        required_error: "Password is required",
+    }).min(6,  {
+        message: "Password must be at least 6 characters",
+    }),
+});
